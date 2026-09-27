@@ -1,0 +1,100 @@
+<DOCTYPE html>
+  <html>
+  <head>
+    <title>Project 09</title>
+  </head>
+
+  <body>
+    <p>Cart Quantity</p> 
+
+    <button class="js-showQ" onclick="showQuantity()"
+      ">Show Quantity
+    </button>
+
+    <p>
+      <!-- adds 1 item -->
+      <button onclick=" 
+        updateCartQuantity(1);">Add to Cart
+      </button>
+      <!-- adds 2 items -->
+      <button onclick="
+        updateCartQuantity(2);">+2
+      </button>
+      <!-- adds 3 items -->
+      <button onclick="
+        updateCartQuantity(3);">+3
+      </button>
+      <!-- adds 4 items -->
+      <button onclick=" 
+        updateCartQuantity(4)">+4
+      </button>
+      <!-- adds 5 items -->
+      <button onclick="
+      updateCartQuantity(5)">+5
+      </button>
+    </p>
+
+    <p>
+      <!-- removes 1 item -->
+      <button onclick="
+        updateCartQuantity(-1);">Remove from cart
+      </button>
+        <!-- removes 2 items -->
+      <button onclick="
+      updateCartQuantity(-2)">-2
+      </button>
+      <!-- removes 3 items -->
+      <button onclick="
+        updateCartQuantity(-3)">-3
+      </button>
+    </p>
+
+    <p>
+      <!-- Resets cart -->
+      <button onclick="cartQuantity=0;
+       updateCartQuantity(0)">Reset Cart
+      </button>
+    </p>
+
+    <p class ="js-cartQuantity"></p>
+
+
+    <script>
+      let cartQuantity = 0;
+      const max =10;
+      const message = 'Exceed numbers of items'; 
+      const message2 = 'Not enough items in the cart.'
+
+      function updateCartQuantity(numberOfItems){
+        
+        if(numberOfItems>0){
+          if(cartQuantity + numberOfItems <= max){
+            cartQuantity +=numberOfItems;
+          }else{
+            alert(message);
+          }
+        }else if (numberOfItems <0){
+          if(cartQuantity + numberOfItems >= 0){
+            cartQuantity +=numberOfItems;
+          }else{
+            alert(message2);
+          }         
+        } else if(numberOfItems === 0){
+            cartQuantity = 0;
+            alert('Cart was reset to 0');
+        }
+
+        document.querySelector('.js-cartQuantity').innerHTML =`Cart Quantity: ${cartQuantity}`;
+        return;
+      }
+
+
+      function showQuantity(){
+         document.querySelector('.js-cartQuantity').innerHTML =`Cart Quantity: ${cartQuantity}`;
+      }
+
+    </script>
+
+  </body>
+  </html>
+</DOCTYPE>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Lesson 06 </title>
+  </head>
+
+  <body>
+
+    <script>
+      
+      // Order of operations: >,< is lower than *, /, +, -
+      console.log(5 == '5'); // true (type doesn't matter, only value)
+      console.log(5 === '5'); // false (number vs string)   
+      console.log(5 *2 > 7); // true (10 > 7)
+
+
+      // If statements
+      //If true, run the code in the block. If false, skip the block.
+      if(4>2){
+        console.log('4 is greater than 2');
+      }
+
+      if(4>9){
+        console.log('4 is greater than 9'); // SKIPPED
+      }
+      else{
+        console.log('4 is not greater than 9'); // THIS WILL BE DISPLAYED
+      }
+
+      // Check someone is old enough to drive
+      const age = 23;
+      if(age<16){
+        console.log('Not old enough to drive and drink');
+      }else if(age<22){
+        console.log('Old enough to drive but not to drink');
+      }else{
+        console.log('Old enough to drive and drink');
+      }
+
+
+      // Falsy Values = false, 0, '', NaN, undefined, null  -> all those behave as false. So, the next statement is NOT run.
+      // Any value that is not on the above list is truthy, so the next statement is run.
+
+
+      // Ternary operator
+      //booleanValue ? anotherValue : anotherValue
+      //(condition)  ?     true     :   false
+      //  number>5   ? # is greater :  # is smaller
+          //const result = number>5   ? # is greater :  # is smaller;
+          // console.log(result); to print result in console
+
+      // if(number > 5){
+      //    print(# is greater); 
+      // }else {
+      //    print(# is smaller);   
+      // }
+
+    </script>
+    
+  </body>
+
+</html>

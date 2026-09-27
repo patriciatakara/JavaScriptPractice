@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 08</title>
+  </head>
+
+  <body>
+
+    <script>
+    
+    const basketball = {
+      price: 2095,
+    };
+    // increase price by 500
+    basketball.price += 500;
+    console.log(basketball);
+    // add property delivery-time
+    basketball['delivery-time'] = '3 days';
+    console.log(basketball);
+
+    const clothes = {
+      name: 'shirt',
+      price: 5000
+    }
+    const food = {
+      name:'bread',
+      price: 800
+    }
+
+    const breakfast = {
+      name:'bread',
+      price: 800
+    }
+
+    // Creating function comparePrice
+    function comparePrice(pr1, pr2){
+      if(pr1.price < pr2.price){
+        return pr1.name;
+      }else if(pr1.price === pr2.price){
+        return 'Same price';
+      }else{
+        return pr2.name;
+      }
+    }
+      console.log('The less expensive product is '+comparePrice(clothes,food));
+
+
+    //creating function isSameProduct
+    // Remember, we cannot compare two objects since they have different references even though content could be the same.
+    function isSameProduct(pr1, pr2){
+      return pr1.name === pr2.name && pr1.price === pr2.price;
+    }
+          //OR 
+    // function isSameProduct(pr1, pr2){
+    //   if ((pr1.name === pr2.name) && (pr1.price === pr2.price)){
+    //     return true;
+    //   } 
+    //   return false;
+    // }
+    console.log(isSameProduct(clothes,breakfast));
+
+
+    // Converting JS to lowercase
+    console.log('Good Morning'.toLowerCase()); 
+
+    // Repeating a string as many times.
+    console.log('test'.repeat(2));
+
+    </script>
+  </body>
+</html>

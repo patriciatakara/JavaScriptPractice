@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Coin-Flip-Game</title>
+  </head>
+
+  <body>
+
+    <button onclick="playGame('heads');">Heads</button>
+    <button onclick="playGame('tails');">Tails</button>
+    <button onclick="console.log(localStorage.getItem('scores'));">Show Score</button>
+
+    <script>
+
+      // let scores = {
+      //   wins: 0,
+      //   losses: 0
+      // }
+      let scores = JSON.parse(localStorage.getItem('scores')) ||{wins:0, losses:0};
+
+      function playGame(guess){
+        let pc = Math.random();
+        let pcResult;
+        let message;
+
+      // PC chooses his guess
+        // if(num < 0.5){
+        //   result='Heads';
+        // }else{
+        //   result='Tails';
+        // }
+        // Using Ternary operation
+        pc<0.5? pcResult='Heads': pcResult='Tails'
+        console.log(pc)
+
+      //Compare PC and our guess
+        if(guess === pcResult){
+          message = "You win!";
+          scores.wins++;
+        }else{
+          message = "You lose!";
+          scores.losses++;
+        }
+        // Using Ternary operation
+        //guess===pcResult? message="You win!" : message ='You lose!';
+
+        // Saving in localstorage
+        localStorage.setItem('scores',JSON.stringify(scores)) 
+
+        return console.log(`PC: ${pcResult}. Our guess: ${guess}. ${message}
+        Wins: ${scores.wins}  
+        Losses: ${scores.losses}`);
+      }
+   
+    </script>
+  </body>
+</html>

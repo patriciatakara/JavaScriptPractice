@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 06</title>
+  </head>
+
+  <body>
+
+    <script>
+              // Hour message//
+      let hour = 5;
+      let message;
+      let name = 'Naomi'
+      if(hour>=6 && hour <=12){
+        message = 'Good Morning';
+      }else if(hour >=13 && hour <=17){
+        message = 'Good Afternoon';
+      }else{
+        message = 'Good Night';
+      }
+      console.log(`${message} ${name}!`);
+
+            // Amusement park//
+      let age = 6;
+      let discount;
+      let holiday = false
+      // Discount given if it is not a holiday an meet age req.
+      if(!holiday && (age<=6 || age >=65)){
+        discount = true;
+      }else{
+        discount = false;
+      }
+
+      if(discount){
+        console.log('Discount!');
+      }else{
+        console.log('No discount!');
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lesson 07</title>
+  </head>
+
+  <body>
+
+    <script>
+      function greet(name){
+        if(!name){  // when name is undefined. Use condition when it is a falsy value.
+          console.log('Hi there!')
+        }else{
+          console.log(`Hello! ${name}`);
+        }
+        return;
+      }
+
+      let name ='Naomi' ;
+      greet(name);
+      
+
+      function convertToFahrenheit(celsius){
+        let result;
+        result=(celsius*9/5) + 32;
+        return result;
+      }
+      console.log(convertToFahrenheit(25));
+
+
+      function convertToCelsius(fahrenheit){
+        let result;
+        result = (fahrenheit-32)*5/9;
+        return result;
+      }
+      console.log(convertToCelsius(86));
+
+      function convertTemp(degree, unit){
+        let conversion;
+        if(unit === 'C'){
+          conversion = convertToFahrenheit(degree);
+        }else{
+          conversion = convertToCelsius(degree);
+        }
+        return degree+unit + ' is ' + conversion + 'F';
+      }
+      console.log(convertTemp(25,'C'));
+
+
+      function convertLength(length, from, to){
+        let result;
+        const milekm = 1.6;
+        const mileFeet = 5280;
+        const kmFeet = 3281;
+
+        if(from !== 'miles' && from !== 'km' && from !== 'ft'){
+          result = 'Invalid unit: '+ from;
+        }else if(to !== 'miles' && to !== 'km' && to !== 'ft'){
+          result = 'Invalid unit: ' + to; 
+        }else{
+          if(from === 'km' & to ==='km'){
+            result = length;
+          }else if(from === 'miles' & to === 'miles'){
+            result = length;
+          }else if (from === 'ft' && to === 'ft'){
+            result = length;
+          }else if(from === 'km' && to === 'miles'){
+            result = length/milekm;           
+          }else if(from === 'miles' && to === 'km'){
+            result = length*milekm;
+          }else if(from === 'ft'&& to === 'miles'){
+            result = length/mileFeet;
+          }else if(from === 'ft' && to === 'km'){
+            result = length/kmFeet;
+          }else if(from === 'miles'&& to === 'ft'){
+            result = length*mileFeet;
+          }else if(from === 'km' && to === 'ft'){
+            result = length*kmFeet;
+          }
+        } 
+        return result;
+      }
+      console.log(convertLength(5,'ft','d'));
+
+    </script>
+    
+  </body>
+</html>

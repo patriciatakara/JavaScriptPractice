@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>09-DOM Project (3)</title>
+  </head>
+
+  <body>
+    <div>
+      Youtube Subscribe Button
+      <p>
+        <Button class="subscribe-button" onclick="subscribe()";>Subscribe</Button>
+      </p>
+    </div>
+   
+    <div>  
+      Rock Paper Scissors
+      <p class="rps-link" onclick="rockPaperScissorLink()";>Click here</p>
+    </div>
+
+    <div>
+      Amazon Shipping Calculator
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 =  FREE Shipping.</p>
+      <input class="js-cost" placeholder="Cost of order" onkeydown="enterPressed(event.key)";> 
+      <button class="js-calculate" onclick="calculate()";>Calculate</button> </p>
+      <p class="js-total"></p>
+    </div>
+
+
+    <script>
+
+      window.document
+      window.console.log('window');
+      window.alert
+
+
+      // when clicking on the Subscribe button, it changes to Subscribed
+      function subscribe() {
+        const jsButton = document.querySelector('.subscribe-button');
+        if(jsButton.innerText === 'Subscribe'){
+          jsButton.innerText = 'Subscribed';
+        }else{
+          jsButton.innerText = 'Subscribe';
+        }
+      }
+
+      
+      // Replace the prompt text with a link to the Rock Paper Scissors project.
+      function rockPaperScissorLink(){
+        document.querySelector('.rps-link').innerHTML ='<a href = "file:///c%3A/Users/Patri/Desktop/JavaScriptPractice/09-rockPaperScissors.html">Click Here</a>';
+      }
+
+
+      // Calculate the order total, including shipping for orders at or below $40.
+      function calculate(){
+        const freeShippingThreshold = 40;
+        //let total= JSON.parse(document.querySelector('.js-cost').value);
+        let total = Number(document.querySelector('.js-cost').value);
+        if(total <= freeShippingThreshold){
+          total += 10;
+        }
+        document.querySelector('.js-total').innerHTML = `${total}`;
+        return total;
+      }
+
+
+      // Calculate the total when the user presses Enter in the cost input. (onkeydown)
+      function enterPressed(key){
+        if(key==='Enter'){
+          calculate();
+        }
+      }
+
+    </script>
+  </body>
+</html>

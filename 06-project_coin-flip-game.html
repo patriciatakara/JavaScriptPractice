@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Coin-Flip-Game</title>
+  </head>
+
+  <body>
+
+    <script>
+
+      let num = Math.random();
+      let result;
+      const guess = 'heads';
+      let message;
+      
+      // if(num < 0.5){
+      //   result='heads';
+      // }else{
+      //   result='tails';
+      // }
+      // Using Ternary operation
+      num<0.5? result='heads': result='tails;'
+
+      // if(guess === result){
+      //   message = "You win!";
+      // }else{
+      //   message = "You lose!";
+      // }
+      // Using Ternary operation
+      guess===result? message="You win!" : message ='You lose!';
+
+      console.log(message);
+
+    </script>
+
+  </body>
+
+</html>

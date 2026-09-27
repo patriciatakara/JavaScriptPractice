@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>08 Rock Paper Scissors </title>
+  </head>
+
+  <body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="playGame('rock');">Rock</button>
+    <button onclick="playGame('paper');">Paper</button>
+    <button onclick="playGame('scissors');">Scissors</button>
+    <button onclick="playGame('reset'); localStorage.removeItem('score');">Reset Score</button>
+
+    <script>     
+    // Display score.
+    // [1] Use JSON instead of JavaScript object. When we load the page it will get data from local storage instead of reseting to 0 every time we refresh the page.
+    let score = JSON.parse(localStorage.getItem('score')); //JSON -> JavaScript
+    // the same as:
+        // let score = { // JavaScript
+        //   wins: 0,
+        //   losses:0,
+        //   ties: 0
+        // }
+
+    // Another way: using the default operator (remove codes [1] and [2]): 
+      // This condense the code, it accomplishes what [1] and [2] do:   
+    // let score = JSON.parse(localStorage.getItem('score')) || {wins:0,
+    //     losses:0,
+    //     ties: 0};
+    
+
+    // [2] When we click Reset Score, the scores in local storage are deleted, so value = null. Then, scores are set to 0. Null is a falsy value, use the boolean shortcut.
+    if(!score){
+      score={
+        wins:0,
+        losses:0,
+        ties: 0
+      }
+    }
+
+
+
+    function playGame(playerChoice) {
+      let pC = Math.random();
+      let result;
+      if(playerChoice === "reset"){
+        score.wins=0; 
+        score.losses = 0; 
+        score.ties = 0
+        alert(`Score reset!
+        Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}.`)
+        return;
+      }
+    
+      // PC picks a move
+      if(pC >= 0 && pC < 1/3){
+        pC = 'rock';
+      }else if(pC >= 1/3 && pC <2/3){
+        pC = 'paper';
+      }else if(pC >= 2/3 && pC <1){
+        pC ='scissors';
+      }
+
+      // Compare our move against the PC
+      if (playerChoice === pC){
+        result = 'Tie.';
+        score.ties++;
+      }else if(
+        (playerChoice === 'rock' && pC === 'scissors') || 
+        (playerChoice === 'paper' && pC === 'rock') ||
+        (playerChoice === 'scissors' && pC === 'paper')){
+          result = 'You win!';
+          score.wins++; 
+        }
+      else{
+        result = 'You lose.'
+        score.losses++;
+      }
+
+      // Display result in a pop-up
+      alert(`You picked ${playerChoice}. PC picked ${pC}.__${result}__
+      Wins: ${score.wins}. Losses: ${score.losses}. Ties: ${score.ties}.`);
+
+       
+      // Local storage: saving an item in local storage ('Name used to access it', 'value to be saved')
+       // convert JavaScript object into JSON string since local storage only saves strings.
+      localStorage.setItem('score', JSON.stringify(score));
+    }
+
+    // How to retrieve item from local storage -> localStorage.getItem('')
+    console.log(localStorage.getItem('score'));
+
+    </script>
+  </body>

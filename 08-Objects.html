@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Objects</title>
+  </head>
+
+  <body>
+
+    <script>
+
+      // OBJECTS __________________________________________________________________________ 
+      const product = {
+        name:'socks',
+        price:'1090'
+      };
+
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+      
+      // change the value of a property
+      product.name = 'cotton socks';
+      console.log(product);
+
+      // add a new property
+      product.newProperty = true;
+      console.log(product);
+
+      // remove a property
+      delete product.newProperty;
+      console.log(product);
+
+
+      // NESTED OBJECTS __________________________________________________________________________
+      const product2 = {
+        name: 'shirt',
+        'delivery-time': '3 days',  // or ['delivery-time'] -> the brackets are optional.
+        rating: {   // NESTED OBJECT to organized properties better
+          stars: 4.5,
+          count: 87,},
+        fun: function funct1(){   // this FUNCTION in an object (just another type of value in JavaScript)
+          console.log('function inside an object!'); // Function inside an object is a METHOD.
+        }
+      };
+
+      console.log(product2);
+      console.log(product2.name);   // dot notation = used by default since it's shorter/easier to read.
+      console.log(product2['name']);  // bracket notation: used in properties that don't work with dot-notation
+        // example:
+      ////console.log(prodcut2.delivery-time);  // the - is seen as subtracting by JavaScript, = ERROR!
+
+      console.log(product2['delivery-time']); // OK
+      console.log(product2.rating.stars);     // displaying nested object
+      console.log([product2.rating.count]);   // displaying nested object
+      console.log([product2.rating.count*2]); // with bracket notation you can make calculations
+      product2.fun();   // call a function from inside an object
+
+      // Function inside an object is a METHOD.
+      console.log(typeof console) // LOG is a function saved inside CONSOLE object
+      Math.random() // MATH is the object and RANDOM is the function
+      
+
+      // BUILT-IN OBJECTS ________________________________________________________________________
+    // 1)JSON Built-in objects: helps to convert JavaScript object to JSON(JavaScript Object Notation)
+      // Like JavaScript object syntax, but all the properties string values must use " ". Json does not support single quotes and Functions.
+      // Why use Json instead?  Because it can understood by almost every programming language.(Universal)
+      // We use JSON when we send data between 2 computers that might use different programming languages.
+      // Also used when we store data.
+
+      // Converting product2 to JSON
+      console.log(JSON.stringify(product2)); //stringify is a method of JSON object that converts JavaScript -> JSON = results in a string that can be sent to another PC or stored.
+
+      // Converting JSON to JavaScript
+      const jsonString = JSON.stringify(product2);
+      console.log(JSON.parse(jsonString));
+
+    // 2)LOCAL STORAGE
+      // Used to save values more permanently
+      // variables are temporary, if we refresh the page the variables's contents are deleted.
+
+
+
+    // AUTO-BOXING: strings have properties and methods ______________________________________________
+      // JV automatically wraps a string into an object, so we're able to use those properties and methods
+      // works with booleans and numbers. 
+    console.log('hellooo'.length); // 7 
+    console.log('hello'.toUpperCase()); // HELLO
+    console.log(45.0.toString()); // 45
+    console.log(true.toString()); // true
+
+    
+    // SHORTCUTS ____________________________________________________________________________________
+    const object5 = {
+      message: 'Good Job!!!',
+      price: 799
+    };
+    // DESTRUCTURING
+    // 2 Ways to save into a varible, especially if they have the same name.
+      //1)Normal way:
+        //const message = object5.message; 
+      //2)DESTRUCTURING: takes the property out of the object and save it in the variable message.
+          const {message, price} = object5; 
+          console.log(message);
+          console.log(price);
+
+
+    // SHORTHAND PROPERTY
+    const object6 = {
+      message: message // it takes whatever is inside the message variable and stores in the message.
+    };
+    const object7 = {
+      message          // if the property and variable name are the same, type it once. 
+    };
+    //Therefore, message: message is the same as message
+    console.log(object6); // {message: 'Good Job!!!'}
+    console.log(object7); // {message: 'Good Job!!!'}
+
+
+    // SHORTHAND METHOD
+    const object8 = {
+      message,
+      method: function func1(){  // function in an object
+        console.log('method8');
+      }
+    };
+    object8.method(); 
+                              // VS
+    const object9 = {
+      message,
+      method(){   // shortcut for a function in an object. So,'function func1' is not necessary.
+        console.log('method9'); 
+      }
+    };
+    object9.method();
+
+    </script>
+  </body>
+</html>

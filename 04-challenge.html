@@ -1,0 +1,38 @@
+<!--
+Clicking the "Add to cart" button should display an alert that says "Added".
+Clicking the "Buy Now" button should display an alert that says "Purchased" and display "Loading..." to the console (Inspect to check).
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+
+    <style>
+      .yellow-button{
+        background-color:yellow;
+      }
+      .orange-button{
+        background-color:orange;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <p>Adults Plain Cotton T-shirt</p>
+    <p>Price: $7.99</p>
+
+    <button class="yellow-button" onclick="alert('Added')">Add to cart</button>
+
+    <button class="orange-button" onclick="console.log('Loading...') + alert('Purchased')">Buy Now</button>
+
+    <script>
+      
+    </script>
+
+  </body>
+
+
+
+</html>

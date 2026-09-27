@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document Object Model (DOM)</title>
+  </head>
+
+  <body>
+    
+    <button>Hello</button>
+    <button class="js-button">SecondHello</button>
+
+    <script>
+      // Document object is linked to the webpage. It represents/models the webpage.
+      
+        // change the webpage contents:
+     // document.body.innerHTML = 'hello'; //document is an object, and body is one of its properties. Body is also an object with innerHTML as property.
+
+        // changing the webpage title:
+    //document.title = 'changed title';
+
+        // lets you get any elements in the page and put inside JS
+      // In this example, it looks for the first button element and put it inside the JS section. That button is now seen as JS object.
+      console.log(document.querySelector('button'));
+      // gives us the content in that button since it's accesing Inner HTML.
+      console.log(document.querySelector('button').innerHTML);
+      // this changes the content in the button Hello --> changed 
+      document.querySelector('button').innerHTML = 'changed';
+      
+      // How to get the second button: use attribute class
+      // the . means it is looking for a class rather than an element.
+      const buttonElement = document.querySelector('.js-button');
+      console.log(buttonElement);
+
+    </script>
+  </body>
+</html>

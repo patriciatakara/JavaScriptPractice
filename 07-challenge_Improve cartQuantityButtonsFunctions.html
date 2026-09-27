@@ -1,0 +1,100 @@
+<DOCTYPE html>
+  <html>
+  <head>
+    <title>Project 06</title>
+  </head>
+
+  <body>
+    <p>Cart Quantity</p> 
+
+    <button onclick="
+      console.log(`Cart Quantity: ${cartQuantity}`);">Show Quantity
+    </button>
+
+    <p>
+      <!-- adds 1 item -->
+      <button onclick=" 
+        updateCartQuantity(1);">Add to Cart
+      </button>
+      <!-- adds 2 items -->
+      <button onclick="
+        updateCartQuantity(2);">+2
+      </button>
+      <!-- adds 3 items -->
+      <button onclick="
+        updateCartQuantity(3);">+3
+      </button>
+      <!-- adds 4 items -->
+      <button onclick=" 
+        updateCartQuantity(4)">+4
+      </button>
+      <!-- adds 5 items -->
+      <button onclick="
+      updateCartQuantity(5)">+5
+      </button>
+    </p>
+
+    <p>
+      <!-- removes 1 item -->
+      <button onclick="
+        updateCartQuantity(-1);">Remove from cart
+      </button>
+        <!-- removes 2 items -->
+      <button onclick="
+      updateCartQuantity(-2)">-2
+      </button>
+      <!-- removes 3 items -->
+      <button onclick="
+        updateCartQuantity(-3)">-3
+      </button>
+    </p>
+
+    <p>
+      <!-- Resets cart -->
+      <button onclick="cartQuantity=0;
+       updateCartQuantity(0)">Reset Cart
+      </button>
+    </p>
+
+
+    <script>
+      let cartQuantity = 0;
+      const max =10;
+      const message = 'The cart is full!'; 
+      const message2 = 'Not enough items in the cart.'
+
+      function updateCartQuantity(numberOfItems){
+        
+        if(cartQuantity == 10){
+          alert('Cart is full');
+          return;
+        }
+        
+        if(numberOfItems>0){
+          if(cartQuantity + numberOfItems <= max){
+            cartQuantity +=numberOfItems;
+            console.log(`Cart Quantity: ${cartQuantity}`);
+          }else{
+            console.log(message);
+          }
+        }else if (numberOfItems <0){
+          if(cartQuantity + numberOfItems >= 0){
+            cartQuantity +=numberOfItems;
+            console.log(`Cart Quantity: ${cartQuantity}`);
+          }else{
+            alert(message2);
+          }         
+        } else if(numberOfItems === 0){
+            cartQuantity = 0;
+            alert('Cart was reset to 0');
+            console.log(`Cart Quantity: ${cartQuantity}`);
+        }
+        return;
+      }
+
+
+    </script>
+
+  </body>
+  </html>
+</DOCTYPE>

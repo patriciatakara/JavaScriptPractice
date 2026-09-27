@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>09-Challenge Project</title>
+  </head>
+
+  <body>
+    <div>
+      Amazon Shipping Calculator
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 =  FREE Shipping.</p>
+      <input class="js-cost" placeholder="Cost of order" onkeydown="enterPressed(event.key)";> 
+      <button class="js-calculate" onclick="calculate()";>Calculate</button> </p>
+      <p class="js-total"></p>
+    </div>
+
+
+    <script>
+      // Calculate the order total, including shipping for orders at or below $40.
+      function calculate(){
+        const freeShippingThreshold = 40*100;
+        //let cost= JSON.parse(document.querySelector('.js-cost').value);
+        let cost = Number(document.querySelector('.js-cost').value);
+        cost*=100;  //we work we whole number (799+1000=799 -> /100 = 17.99) working with $$
+        if(cost <= freeShippingThreshold){
+          cost += 10*100;
+        }
+        cost /= 100;
+        document.querySelector('.js-total').innerHTML = `${cost}`;
+        return cost;
+      }
+
+      // Calculate the total when the user presses Enter in the cost input. (onkeydown)
+      function enterPressed(key){
+        if(key==='Enter'){
+          calculate();
+        }
+      }
+
+    </script>
+  </body>
+</html>

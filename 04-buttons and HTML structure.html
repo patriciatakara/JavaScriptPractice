@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html>  
+<head>  
+  <title>Buttons & HTML struc</title>
+
+  <!--CSS Code-->
+  <style> 
+    .red-button{
+      background-color:red;
+      color:white;
+      border: none;
+    }
+    .yellow-button{
+      background-color:yellow;
+      color:black;
+      border: none;
+    }
+  </style>
+</head>
+
+  <body>  
+    <!--HTML Code-->
+    <button title="click me" class="red-button" onclick="
+      alert('Good Job!');
+    ">
+      hello there
+    </button>
+
+    <p title="paragraph 1">
+      paragraph of text <button class="yellow">OK</button> 
+    </p>
+
+    <!--JavaScript Code: at the bottom, since adds functionality-->
+    <!--Code on script runs first than in attribute ////onclick --> 
+    <script>
+      //This is a comment inside the script tag
+      /* multi-comment lines
+      */
+      // alert("Hello, World!");
+      console.log(2+2);
+      console.log('text' + ' in the console');
+    </script>
+
+  </body>
+
+</html>
