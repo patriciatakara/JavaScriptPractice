@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>09 Calculator</title>
+</head>
+
+<body>
+
+  <p class="js-display"></p>
+
+  <!--- 1 2 3 + -->
+  <p>
+    <button onclick="display(updateCalculation('1'));">1</button>
+    <button onclick="display(updateCalculation('2'));">2</button>
+    <button onclick="display(updateCalculation('3'));">3</button>
+    <button onclick="display(updateCalculation('+'));">+</button>
+  </p>
+
+  <!-- 4 5 6 - -->
+  <p>
+    <button onclick="display(updateCalculation('4'));">4</button>
+    <button onclick="display(updateCalculation('5'));">5</button>
+    <button onclick="display(updateCalculation('6'));">6</button>
+    <button onclick="display(updateCalculation('-'));">-</button>
+  </p>
+
+  <!-- 7 8 9 * -->
+  <p>
+    <button onclick="display(updateCalculation('7'));">7</button>
+    <button onclick="display(updateCalculation('8'));">8</button>
+    <button onclick="display(updateCalculation('9'));">9</button>
+    <button onclick="display(updateCalculation('*'));">*</button>
+  </p>
+
+  <!-- 0 . = / -->
+  <p>
+    <button onclick="display(updateCalculation('0'));">0</button>
+    <button onclick="display(updateCalculation('.'));">.</button>
+    <button onclick="display(totalCalculation(calculation));  localStorage.setItem('calculation',calculation); ">=</button>
+    <button onclick="display(updateCalculation('/'));">/</button>
+  </p>
+
+  <!-- clear -->
+  <p>
+    <button onclick="calculation=''; display(calculation);  localStorage.setItem('calculation',calculation); ">Clear</button>
+  </p>
+
+
+  <script>
+    // Keep track of the current calculator input and restore it from localStorage.
+    // Initializes with what is in local storage. If none, it is initialized with an empty string
+    let calculation = localStorage.getItem('calculation') || "";
+    let total =""
+
+    // When the page first load, if a calculation is already saved to the local storage, display it otherwise, display zero
+    if(localStorage.getItem('calculation')){
+      document.querySelector('.js-display').innerHTML = `${calculation}`;
+    }else{
+      document.querySelector('.js-display').innerHTML = `0`;
+    }
+
+    // Keep adding input, then save into local storage
+    function updateCalculation(input){
+      calculation += input;
+      localStorage.setItem('calculation',calculation);  // save on local storage
+      return localStorage.getItem('calculation');   // retrieve what is saved
+    }
+  
+    // return the total
+    function totalCalculation(calculation){
+      return total = eval(calculation); // eval() evaluate the string expression using math
+    }
+
+    // Display the input when clicking a button
+    function display(input){
+      document.querySelector('.js-display').innerHTML = `${input}`;
+    }
+
+  </script>
+</body>
+</html>
