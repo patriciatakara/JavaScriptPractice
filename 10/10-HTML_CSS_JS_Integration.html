@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10-DOM Project with CSS (3)</title>
+
+    <style>
+
+      body{
+        font-family: Arial;
+      }
+
+      /* Default subscription button */
+      .subscribe-button{
+        border:none;
+        background-color: black;
+        color: white;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer; 
+        margin-bottom:40px;
+      }
+      
+      /* When the user subscribes, this style updates the button to grays and black text*/
+      .is-subscribed{
+        background-color: rgb(240,240,240);
+        color: black;
+      }
+
+      .cost-input{
+        margin-bottom:40px;
+
+      }
+    
+      .calculate-button{
+        background-color: green;
+        color:white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 15px;
+        cursor: pointer; 
+      }
+
+      .js-cost{
+        padding: 12px 15px;
+      }
+
+     
+
+    </style>
+
+  </head>
+
+
+  <body> 
+      Youtube Subscribe Button
+      <p>
+        <Button class="js-subscribe-button subscribe-button" onclick="subscribe()";>Subscribe</Button>
+      </p>
+
+      
+      Amazon Shipping Calculator
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 =  FREE Shipping.</p>
+      <input class="js-cost" placeholder="Cost of order" onkeydown="enterPressed(event.key)";> 
+      <button class="js-calculate calculate-button" onclick="calculate()";>Calculate</button> </p>
+      <p class="js-total cost-input"></p>
+    
+      
+      Rock Paper Scissors
+      <p class="rps-link" onclick="rockPaperScissorLink()";>Click here</p>
+    
+
+
+     <script>
+      window.document
+      window.console.log('window');
+      window.alert
+
+      // when clicking on the Subscribe button, it changes to Subscribed
+      function subscribe() {
+        const jsButton = document.querySelector('.js-subscribe-button');
+        if(jsButton.innerText === 'Subscribe'){
+          jsButton.innerHTML = 'Subscribed';
+          jsButton.classList.add('is-subscribed');     // classList is an object. `.add` adds a class to an element. 'is-subscribed' is the name of new class created.
+          //When we click the Subscribe button, `is-subscribed` class is added to the button. 
+        }else{
+          jsButton.innerText = 'Subscribe';
+          jsButton.classList.remove('is-subscribed'); // button goes back to default style
+        }
+      }
+
+    
+
+      // Calculate the order total, including shipping for orders at or below $40.
+      function calculate(){
+        const freeShippingThreshold = 40;
+        //let total= JSON.parse(document.querySelector('.js-cost').value);
+        let total = Number(document.querySelector('.js-cost').value);
+        if(total <= freeShippingThreshold){
+          total += 10;
+        }
+        document.querySelector('.js-total').innerHTML = `${total}`;
+        return total;
+      }
+
+      // Calculate the total when the user presses Enter in the cost input. (onkeydown)
+      function enterPressed(key){
+        if(key==='Enter'){
+          calculate();
+        }
+
+
+
+      // Replace the prompt text with a link to the Rock Paper Scissors project.
+      function rockPaperScissorLink(){
+        document.querySelector('.rps-link').innerHTML ='<a href = "file:///c%3A/Users/Patri/Desktop/JavaScriptPractice/09/09-rockPaperScissors.html">Click Here</a>';
+      }
+
+
+      }
+    </script>
+  </body>
+</html>
