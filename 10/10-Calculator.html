@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>09 Calculator</title>
+  <link rel="stylesheet" href ="10-CalculatorCss.css">
+</head>
+
+<body>
+  <p class="js-display display"></p>
+
+  <!--- 1 2 3 + -->
+  <p>
+    <button class="numberButton" onclick="display(updateCalculation('1'));">1</button>
+    <button class="numberButton"  onclick="display(updateCalculation('2'));">2</button>
+    <button class="numberButton" onclick="display(updateCalculation('3'));">3</button>
+    <button class="mathButtons" onclick="display(updateCalculation(' + '));">+</button>
+  </p>
+
+  <!-- 4 5 6 - -->
+  <p>
+    <button class="numberButton" onclick="display(updateCalculation('4'));">4</button>
+    <button class="numberButton" onclick="display(updateCalculation('5'));">5</button>
+    <button class="numberButton" onclick="display(updateCalculation('6'));">6</button>
+    <button class="mathButtons" onclick="display(updateCalculation(' - '));">-</button>
+  </p>
+
+  <!-- 7 8 9 * -->
+  <p>
+    <button class="numberButton" onclick="display(updateCalculation('7'));">7</button>
+    <button class="numberButton" onclick="display(updateCalculation('8'));">8</button>
+    <button class="numberButton" onclick="display(updateCalculation('9'));">9</button>
+    <button class="mathButtons" onclick="display(updateCalculation(' * '));">*</button>
+  </p>
+
+  <!-- 0 . = / -->
+  <p>
+    <button class="numberButton" onclick="display(updateCalculation('0'));">0</button>
+    <button class="numberButton" onclick="display(updateCalculation('.'));">.</button>
+    <button class="numberButton" onclick="display(totalCalculation(calculation));  localStorage.setItem('calculation',calculation); ">=</button>
+    <button class="mathButtons" onclick="display(updateCalculation(' / '));">/</button>
+  </p>
+
+  <!-- clear -->
+  <p>
+    <button class="numberButton clearButton" onclick="calculation=''; display(calculation); localStorage.setItem('calculation',calculation)" >Clear</button>
+  </p>
+
+  <script src="10-CalculatorJS.js"></script>
+</body>
+</html>
