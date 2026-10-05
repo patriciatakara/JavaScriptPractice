@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10-DOM Project with CSS (3)</title>
+
+    <style>
+      body{
+        font-family: Arial;
+      }
+      .cost-input{
+        margin-bottom:40px;
+      }
+      .calculate-button{
+        background-color: green;
+        color:white;
+        border: none;
+        font-size: 15px;
+        padding: 12px 15px;
+        cursor: pointer; 
+      }
+      .js-cost{
+        padding: 12px 15px;
+      }
+    </style>
+  </head>
+
+  <body> 
+      Amazon Shipping Calculator
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 =  FREE Shipping.</p>
+      <input class="js-cost" placeholder="Cost of order" onkeydown="enterPressed(event.key)";> 
+      <button class="js-calculate calculate-button" onclick="calculate()";>Calculate</button> </p>
+      <p class="js-total cost-input js-negativeNum"></p>
+    
+     <script>
+      // Calculate the order total, including shipping for orders at or below $40.
+      function calculate(){
+        const freeShippingThreshold = 40;
+        //let total= JSON.parse(document.querySelector('.js-cost').value);
+        let total = Number(document.querySelector('.js-cost').value);
+        let negativeNum = document.querySelector('.js-negativeNum');
+
+        if(total<=0){
+          document.querySelector('.js-negativeNum').innerHTML = `Error: cost cannot be zero or less`;
+          return;
+        }else if(total <= freeShippingThreshold){
+          total += 10;
+        }
+        
+        document.querySelector('.js-total').innerHTML = `${total}`;
+        return total;
+      }
+
+      // Calculate the total when the user presses Enter in the cost input. (onkeydown)
+      function enterPressed(key){
+        if(key==='Enter'){
+          calculate();
+        }
+      }
+
+
+
+
+
+    </script>
+  </body>
+</html>

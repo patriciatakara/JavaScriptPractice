@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>10-challenge</title>
+    <link rel="stylesheet" href="10-lesson.css">
+  </head>
+
+  <body>
+    <p>
+      10.g <button onclick="toggle(this)" class="js-gamingButton toggle-button" >Gaming</button>
+
+      <button onclick="toggle(this)" class="js-musicButton toggle-button" >Music</button>
+     
+      <button onclick="toggle(this)" class="js-techButton toggle-button" >Tech</button>
+    </p>
+
+  <script>
+    //10g- challenge: only one button can be turned on at a time
+    function toggle(button){
+      const jsButton1 =document.querySelector('.js-gamingButton');
+      const jsButton2 =document.querySelector('.js-musicButton');
+      const jsButton3 =document.querySelector('.js-techButton');
+  
+      jsButton1.classList.remove('isToggled');
+      jsButton2.classList.remove('isToggled');
+      jsButton3.classList.remove('isToggled');
+      
+      if(button.classList.contains('isToggled')){
+        button.classList.remove('isToggled');
+      }else 
+        button.classList.add('isToggled');
+    }
+  </script>    
+  </body>
+</html>
