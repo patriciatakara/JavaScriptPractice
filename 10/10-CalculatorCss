@@ -1,4 +1,4 @@
-/*Calculator CSS file */
+/*Calculator CSS */
 body{
   background-color:rgb(25,25,25);
   color:white;
