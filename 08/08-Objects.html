@@ -55,6 +55,28 @@
       console.log([product2.rating.count*2]); // with bracket notation you can make calculations
       product2.fun();   // call a function from inside an object
 
+      //Example: creating an object from an array. Using a variable to create the properties of this object.
+      const unString = ['apple','lime', 'orange', 'apple','lime', 'apple', 'peach']
+      
+      function countWords(text){
+        const result = {};  // creates an empty object
+        //for each word in text
+        for(let i=0; i<text.length; i++){
+          //get the current word
+          const word = text[i]
+          //if the current word does not exist in result object
+          if(!result[word]){ //if apple is not 1, then
+            result[word] = 1; //add the word to the object with a count of 1 -> apple:1
+          }else{
+            result[word]++; //otherwise, increase its count by 1
+          }
+        }
+        return result
+      }
+      console.log(countWords(unString));
+
+
+
       // Function inside an object is a METHOD.
       console.log(typeof console) // LOG is a function saved inside CONSOLE object
       Math.random() // MATH is the object and RANDOM is the function
