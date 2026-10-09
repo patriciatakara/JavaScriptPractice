@@ -1,18 +1,54 @@
 /* To-do List CSS*/
 
-.addButtonPr{
-  background-color: green;
-  border:none;
-  color:white;
-  padding: 9px 28px;
-  cursor:pointer;
+.body{
+  font-family: Arial;
+}
+
+.listGrid, .listInputGrid{
+  display:grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap:10px;
+  align-items: center;
+}
+
+.listInputGrid{
+  margin-bottom: 10px;
+  align-items: stretch;
 }
 
 .inputBoxPr{
-  padding: 7px 10px;
+  padding: 7px 20px;
 }
 
 .dateBoxPr{
-  padding:7px 5px;
+  padding:6px 15px;
 }
+
+.addButtonPr{
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  border:none;  
+  padding:10px 10px;
+  cursor:pointer;
+}
+
+.deleteButton{
+  background-color:rgb(122, 19, 19);
+  color: white;
+  font-size: 15px;
+  border: none;
+  padding: 10px 10px;
+  cursor:pointer;
+}
+
+
+.nameInput,
+.dataInput {
+  font-size:15px;
+  padding:6px;
+  align-items:center;
+}
+
 

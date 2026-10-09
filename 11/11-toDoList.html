@@ -6,15 +6,22 @@
   </head>
 
   <body> 
-  To-do List
-
-  <p>
+  <p>To-do List</p>
+ 
+  <div class="listInputGrid">
+    <!-- Task -->
     <input class="js-inputBox inputBoxPr" placeholder="Task" onkeydown="enterPressed(event.key)"> 
 
-    <input class="js-dateBox dateBoxPr" placeholder="mm/dd/yyy">
 
+     <!-- Date -->
+    <input type="date" class="js-dateBox dateBoxPr" placeholder="mm/dd/yyy">
+
+      <!-- Add Button -->
     <button class="addButtonPr" onclick="addTask()">Add</button>
-  </p>
+  
+  </div>
+
+  <div class="js-list listGrid" ></div>
 
     <script src="11-toDoListJs.js"></script>
   </body>
