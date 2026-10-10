@@ -1,7 +1,6 @@
 // To-do List JavaScript
 
-const tasks = [];
-
+const tasks = JSON.parse(localStorage.getItem('savedTasks')) || [];
 
 // Adds the input task to the list and refreshes the display.
 function addTask(){
@@ -17,8 +16,14 @@ function addTask(){
     inputDate.value =''; //clean box after adding a date
     
   }
+
+  localStorage.setItem('savedTasks', JSON.stringify(tasks));
+
   //displayTasks(tasks);
-  displayTasks(tasks);
+
+  let data = JSON.parse(localStorage.getItem('savedTasks'));
+
+  displayTasks(data);
   console.log(tasks.length);
   console.log(tasks);
   return;
@@ -45,7 +50,6 @@ function displayTasks(list){
       <div>${taskDate}</div>
       <button class="deleteButton"
       onclick ="deleteTask(${i})">Delete</button>
-  
     `;
     toDoListHtml += html;
   }
@@ -57,10 +61,9 @@ function displayTasks(list){
   //Delete Button
   function deleteTask(index){
     tasks.splice(index,1);
+    localStorage.setItem('savedTasks', JSON.stringify(tasks));
     displayTasks(tasks); 
   }
 
 
-// Date Box
-
-
+displayTasks(tasks);
