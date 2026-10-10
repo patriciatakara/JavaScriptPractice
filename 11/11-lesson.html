@@ -216,9 +216,50 @@
       }
       console.log(`Remove 2 initial eggs: ${remove2Eggs(someFood)}`);
 
-      //11.t
-      function reverse(){
+      //11.t/u -reverse array and remove 2 last eggs
+      const lastFruit = someFood.slice(0,someFood.length);
+      console.log(lastFruit);
+      console.log((remove2Eggs(lastFruit.reverse())).reverse());
+
+      //11.v - challenge: FizzBuzz
+      function fizzBuzz (){
+        print = '';
+        for(let i=1; i<=20; i++){
+          if(i%3===0 && i%5===0){
+            print = `${i}=FizzBuzz`;
+          }else if(i % 3 === 0){
+            print = `${i}==Fizz`;
+          }else if (i % 5 ===0){
+            print = `${i}===Buzz`;
+          }else{
+            print= i;
+          }
+          console.log(print);
+        }
+      } 
+      fizzBuzz();
+
+      //11.w
+      const repColors = ['blue','yellow','green','blue','red','white','green','red','pink','purple','green','brown'];
+      function unique(array){
+        const newA = [];
+        let same = false;
+        for(let i=0; i<array.length; i++){
+          //console.log(array[0]);
+          //console.log(array[1]);
+          for(let j=0; j<array.length; j++){
+            if(array[i] === array[j]){
+              same = true;
+            }else{
+             newA.push(array[j]);
+            }
+            
+          } 
+        }
+        return newA;
       }
+      console.log(unique(repColors));
+
 
     </script>
   </body>
