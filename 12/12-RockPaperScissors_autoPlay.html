@@ -4,7 +4,7 @@
     <title>12-Rock Paper Scissors AUTO </title>
   
     <link rel="stylesheet"
-    href="..\10\10-rockPaperScissors.css">
+    href="12-rockPaperScissors_autoPlayCss.css">
   
   </head>
 
@@ -19,6 +19,9 @@
     <p class = "js-score score"></p>
 
     <button class="reset-button" onclick="playGame('reset'); localStorage.removeItem('score');">Reset Score</button>
+
+    <button class="autoPlay-buttonPr autoPlay " onclick="autoPlay_toggle()"
+    >Auto Play</button>
 
     <script src="12-rockPaperScissors_autoPlayJs.js"></script>
   
