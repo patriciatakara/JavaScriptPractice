@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>12-Advanced Functions</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+
+      // Normal function
+      function greeting(){
+        console.log('hello');
+      }
+      greeting();
+
+
+      // Function saved in a variable
+      const function1 = function greeting(){
+        console.log('hello2');
+      };
+      function1(); // This will run the funtion inside the variable.
+      console.log(function1);
+      console.log(typeof function1); // it is a function
+
+
+      // Anonymus function - function name not needed
+      const function2 = function(){
+        console.log('hello3');
+      };
+      function2();
+
+
+      // Passing a function into another function
+      function run(param){ 
+        param();  // calls the function being passed
+      }
+
+      run(function(){ 
+        console.log('hello4');  //function being passed through parameter (callback)
+      })
+
+
+        //Advanced JavaScript Functions-----------------------------------------------------
+      // setTimeout(): allow us to run a function in the future. (Asynchronous)
+        // It has 2 parameters: function and how long to wait before running this function(in   milliseconds -> 1 second = 1000milliseconds)
+      setTimeout(function(){
+        console.log('timeout');
+      }, 2000);
+
+      console.log('next line:'); // prints first than timeout, since setTimeout is set run after 2 seconds. -> This is called `Asynchronous Code`. This line of code wont wait for a line to finish before going to the next line.
+
+      // Synchronous Code on the other hand, waits for one line to finish before executing the next line of code.
+      
+      // setInterval(): it keeps running the function every set of interval. (Asynchronous)
+        // it also have 2 parameters: a function we want to run in the future and how long to wait before running this function(in   milliseconds -> 1 second = 1000milliseconds)
+        // every 3 seconds 'interval' is printed 
+      setInterval(function(){
+        //console.log('interval')
+        }, 3000); 
+      
+    </script>
+  </body>
+</html>
